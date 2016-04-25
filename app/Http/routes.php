@@ -14,3 +14,21 @@
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/collection', function () {
+    return view('collection');
+});
+
+Route::get('/wish-list', function () {
+    return view('wishlist');
+});
+
+Route::get('/search', function () {
+    return view('search');
+});
+
+Route::post('/search', 'ComicController@postSearch');
+
+Route::get('/login', function () {
+    return view('index');
+});
