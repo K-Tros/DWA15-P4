@@ -24,7 +24,7 @@ class CreateComicsTable extends Migration
 
         # The rest of the fields...
         $table->integer('comic_id');
-        $table->stromg('title');
+        $table->string('title');
         $table->string('thumbnail_url');
         $table->string('marvel_url');
         $table->text('description');
