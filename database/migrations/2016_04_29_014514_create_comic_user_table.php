@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateComicUserWishlistTable extends Migration
+class CreateComicUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateComicUserWishlistTable extends Migration
      */
     public function up()
     {
-        Schema::create('comic_user_wishlist', function (Blueprint $table) {
+        Schema::create('comic_user', function (Blueprint $table) {
 
             $table->increments('id');
             $table->timestamps();
@@ -26,6 +26,9 @@ class CreateComicUserWishlistTable extends Migration
             # Make foreign keys
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('comic_id')->references('id')->on('comics');
+
+            $table->boolean('collection');
+            $table->boolean('wishlist');
         });
     }
 
@@ -36,6 +39,6 @@ class CreateComicUserWishlistTable extends Migration
      */
     public function down()
     {
-        Scema::drop('comic_user_wishlist');
+        Schema::drop('comic_user');
     }
 }
