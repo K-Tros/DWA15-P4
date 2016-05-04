@@ -29,6 +29,17 @@ Route::get('/search', function () {
 
 Route::post('/search', 'ComicController@postSearch');
 
-Route::get('/login', function () {
-    return view('index');
-});
+# Show login form
+Route::get('/login', 'Auth\AuthController@getLogin');
+
+# Process login form
+Route::post('/login', 'Auth\AuthController@postLogin');
+
+# Process logout
+Route::get('/logout', 'Auth\AuthController@logout');
+
+# Show registration form
+Route::get('/register', 'Auth\AuthController@getRegister');
+
+# Process registration form
+Route::post('/register', 'Auth\AuthController@postRegister');
