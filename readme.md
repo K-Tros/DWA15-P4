@@ -1,3 +1,11 @@
+# Kevin's TODOs
+
+* Remove routing and logic needs to be done for Collection and Wishlist.
+* Search functionality needs to call Marvel's API.
+* "Add" functionality in Search results.
+* Fix css and other styling (kind of ugly right now).
+* Fix all the URLs before deploying to prod (workaround for local dev right now).
+
 # Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
