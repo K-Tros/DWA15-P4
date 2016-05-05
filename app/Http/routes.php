@@ -15,12 +15,27 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/collection', function () {
-    return view('collection');
+Route::get('/collection', function ()
+{
+    $comics = null;
+    if (Auth::check()) {
+        $comics = \Project4\Comic::getComicsForCurrentUser();
+    }
+
+    return view('collection',[
+        'comics' => $comics
+    ]);
 });
 
 Route::get('/wish-list', function () {
-    return view('wishlist');
+    $comics = null;
+    if (Auth::check()) {
+        $comics = \Project4\Comic::getComicsForCurrentUser();
+    }
+
+    return view('wishlist',[
+        'comics' => $comics
+    ]);
 });
 
 Route::get('/search', function () {

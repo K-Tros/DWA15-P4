@@ -11,6 +11,12 @@ class Comic extends Model
     public function users()
     {
         # With timetsamps() will ensure the pivot table has its created_at/updated_at fields automatically maintained
-        return $this->belongsToMany('\Project4\User')->withTimestamps();
+        return $this->belongsToMany('\Project4\User')->withTimestamps()->withPivot('collection','wishlist');
+    }
+
+    public static function getComicsForCurrentUser()
+    {
+        $user = \Project4\User::where('id', '=',\Auth::id())->first();
+        return $user->comics;
     }
 }

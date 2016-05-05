@@ -51,3 +51,7 @@ input[type=password] {
 .navbar {
     background-color: white;
 }
+
+p {
+    display: inline-block;;
+}
