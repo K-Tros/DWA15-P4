@@ -25,9 +25,9 @@
                                 </div>
                             </div>
                             <br>
-                            <a href="{{ $comic->marvel_url}}">View on Marvel.com</a>
+                            <a href="{{ $comic->marvel_url }}">View on Marvel.com</a>
                             <br>
-                            <a href="#">Remove from Collection</a>
+                            <a href="/Project4/public/collection/remove/{{ $comic->id }}">Remove from Collection</a>
                         </li>
                         <br>
                     @endif

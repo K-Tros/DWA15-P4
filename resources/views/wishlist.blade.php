@@ -27,7 +27,7 @@
                             <br>
                             <a href="{{ $comic->marvel_url}}">View on Marvel.com</a>
                             <br>
-                            <a href="#">Remove from Wishlist</a>
+                            <a href="/Project4/public/wishlist/remove/{{ $comic->id }}">Remove from Wishlist</a>
                         </li>
                         <br>
                     @endif

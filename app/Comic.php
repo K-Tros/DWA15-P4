@@ -16,7 +16,7 @@ class Comic extends Model
 
     public static function getComicsForCurrentUser()
     {
-        $user = \Project4\User::where('id', '=',\Auth::id())->first();
+        $user = \Project4\User::where('id', '=', \Auth::id())->first();
         return $user->comics;
     }
 }
