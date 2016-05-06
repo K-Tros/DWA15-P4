@@ -25,7 +25,7 @@
             <li class="{{ Request::path() == '/' ? 'active' : '' }}"><a href='/Project4/public/'>Home</a></li>
             <li class="{{ Request::path() == 'search' ? 'active' : '' }}"><a href='/Project4/public/search'>Search</a></li>
             <li class="{{ Request::path() == 'collection' ? 'active' : '' }}"><a href='/Project4/public/collection'>Collection</a></li>
-            <li class="{{ Request::path() == 'wish-list' ? 'active' : '' }}"><a href='/Project4/public/wish-list'>Wishlist</a></li>
+            <li class="{{ Request::path() == 'wish-list' ? 'active' : '' }}"><a href='/Project4/public/wish-list'>Wish List</a></li>
         </ul>
         <ul class='nav navbar-nav pull-right'>
             @if(Auth::check())

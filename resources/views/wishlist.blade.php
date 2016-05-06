@@ -5,7 +5,7 @@
 @stop
 
 @section('content')
-    <h1>Marvel Wishlist Manager</h1>
+    <h1>Marvel Wish List Manager</h1>
 
     <div class="wishlist center-block">
     @if(Auth::check())
@@ -27,7 +27,7 @@
                             <br>
                             <a href="{{ $comic->marvel_url}}">View on Marvel.com</a>
                             <br>
-                            <a href="/Project4/public/wishlist/remove/{{ $comic->id }}">Remove from Wishlist</a>
+                            <a href="/Project4/public/wish-list/remove/{{ $comic->id }}">Remove from Wish List</a>
                         </li>
                         <br>
                     @endif

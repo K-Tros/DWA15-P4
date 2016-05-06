@@ -27,7 +27,7 @@ Route::get('/collection', function ()
     ]);
 });
 
-// not really the best to use a get here, but kind of had to so that remove could work in and anchor tag
+// not really the best to use a get here, but kind of had to so that remove could work in an anchor tag
 Route::get('/collection/remove/{id?}', function($id = null) {
     // comic for user and set collection to 0
     $user = \Project4\User::where('id', '=', \Auth::id())->first();
@@ -41,7 +41,7 @@ Route::get('/collection/remove/{id?}', function($id = null) {
         }
     }
 
-    \Session::flash('message','Comic successfully removed from you collection.');
+    \Session::flash('message','Comic successfully removed from your collection.');
     return redirect('/collection');
 });
 
@@ -56,8 +56,8 @@ Route::get('/wish-list', function () {
     ]);
 });
 
-// not really the best to use a get here, but kind of had to so that remove could work in and anchor tag
-Route::get('/wishlist/remove/{id?}', function($id = null) {
+// not really the best to use a get here, but kind of had to so that remove could work in an anchor tag
+Route::get('/wish-list/remove/{id?}', function($id = null) {
     // comic for user and set wishlist to 0
     $user = \Project4\User::where('id', '=', \Auth::id())->first();
     $user->comics()->updateExistingPivot($id, ['wishlist'=> 0]);
@@ -70,7 +70,7 @@ Route::get('/wishlist/remove/{id?}', function($id = null) {
         }
     }
 
-    \Session::flash('message','Comic successfully removed from you collection.');
+    \Session::flash('message','Comic successfully removed from your wish list.');
     return redirect('/wish-list');
 });
 
