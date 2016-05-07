@@ -104,3 +104,16 @@ Route::get('/collection/add/{id?}', function($id = null) {
 Route::get('/wish-list/add/{id?}', function($id = null) {
 
 });
+
+Route::get('/practice', function() {
+
+    $request = new Illuminate\Http\Request();
+    //$request->replace(array('titleStartsWith' => 'young'));
+    $request->replace(array('limit' => '100'));
+
+    $helper = new \Project4\Libraries\MarvelAPIHelper();
+
+    $comics = $helper->getComicsFromAPI($request);
+    dd($comics);
+
+});
