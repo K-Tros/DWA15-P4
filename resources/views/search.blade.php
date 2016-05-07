@@ -29,9 +29,25 @@
 
     @if(isset($search_results))
         <section class='search-results container center-block"'>
-            <p>
-                Search Results here
-            </p>
+            <ul>
+                @foreach($search_results as $comic)
+                    <li>
+                        <div class="comic-title">
+                            {{ $comic->title }}
+                        </div>
+                        <br>
+                        <div class="container">
+                            <img src="{{ $comic->thumbnail_url }}" alt="{{ $comic->thumbnail_url }}" height="150px" width="auto" />
+                        </div>
+                        <br>
+                        <a href="{{ $comic->marvel_url }}">View on Marvel.com</a>
+                        <br>
+                        <a href="/Project4/public/collection/add/{{ $comic->id }}">Add to Collection</a>
+                        <br> <a href="/Project4/public/wish-list/add/{{ $comic->id }}">Add to Wish List</a>
+                    </li>
+                    <br>
+                @endforeach
+            </ul>
         </section>
     @endif
 @stop

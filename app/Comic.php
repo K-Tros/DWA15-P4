@@ -19,4 +19,8 @@ class Comic extends Model
         $user = \Project4\User::where('id', '=', \Auth::id())->first();
         return $user->comics;
     }
+
+    public static function comicSearch($request) {
+        return \Project4\Comic::where('title', 'LIKE', '%'.$request->input('title', '').'%')->orderBy('title','desc')->get();
+    }
 }
