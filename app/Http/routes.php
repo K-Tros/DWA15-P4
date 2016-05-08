@@ -96,14 +96,11 @@ Route::get('/collection/remove/{id?}', function($id = null) {
 });
 
 // not really the best to use a get here, but kind of had to so that remove could work in an anchor tag
-Route::get('/collection/add/{id?}', function($id = null) {
-
-});
+// TODO should probably try to find a way to change the add and remove methods to use a post and to stay on the same page
+Route::get('/collection/add/{id?}', 'ComicController@getCollectionAdd');
 
 // not really the best to use a get here, but kind of had to so that remove could work in an anchor tag
-Route::get('/wish-list/add/{id?}', function($id = null) {
-
-});
+Route::get('/wish-list/add/{id?}', 'ComicController@getWishListAdd');
 
 Route::get('/practice', function() {
 
