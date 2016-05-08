@@ -21,7 +21,7 @@ class Comic extends Model
     }
 
     public static function comicSearch($request) {
-        return \Project4\Comic::where('title', 'LIKE', '%'.$request->input('title', '').'%')->orderBy('title','desc')->get();
+        return \Project4\Comic::where('title', 'LIKE', '%'.$request->input('title', '').'%')->orderBy('title','asc')->get();
     }
 
     public static function addComicToUserCollection($id) {

@@ -5,7 +5,7 @@
 * ~~"Add" functionality in Search results.~~ Maybe in the future I will change it so it doesn't have to refresh the page, but I don't think this is a priority for the due date.
 * Route validation!
 * Set up screens to display flash message.
-* Add Auth checks to routes.php so that everything important is limited to signed on users.
+* ~~Add Auth checks to routes.php so that everything important is limited to signed on users.~~
 * Fix css and other styling (kind of ugly right now).
 * Fix all the URLs before deploying to prod (workaround for local dev right now).
 
