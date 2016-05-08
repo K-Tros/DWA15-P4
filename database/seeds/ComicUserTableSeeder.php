@@ -27,7 +27,7 @@ class ComicUserTableSeeder extends Seeder
                $comic = \Project4\Comic::where('comic_id','LIKE',$comic_id)->first();
                # Connect this comic to this user
                # (create a many to many entry)
-               $user->comics()->save($comic,array('collection' => 1, 'wishlist' => 1));
+               $user->comics()->save($comic,array('collection_count' => 1, 'wishlist_count' => 1));
            }
         }
     }

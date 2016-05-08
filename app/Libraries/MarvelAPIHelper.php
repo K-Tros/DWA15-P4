@@ -28,7 +28,8 @@ class MarvelAPIHelper
                     'ts' => $ts,
                     // hash = md5 hashed timestamp, private key, public key
                     'hash' => md5($ts . \Config::get('apis.marvel_api_private_key') . \Config::get('apis.marvel_api_public_key')),
-                    'limit' => $request['limit'] ];
+                    'limit' => $request['limit'],
+                    'offset' => $request['offset'] ];
         if(isset($request['titleStartsWith'])) {
             $query['titleStartsWith'] = $request['titleStartsWith'];
         }

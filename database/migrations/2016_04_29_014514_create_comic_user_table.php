@@ -27,8 +27,8 @@ class CreateComicUserTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('comic_id')->references('id')->on('comics');
 
-            $table->integer('collection');
-            $table->integer('wishlist');
+            $table->integer('collection_count');
+            $table->integer('wishlist_count');
         });
     }
 

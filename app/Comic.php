@@ -38,14 +38,14 @@ class Comic extends Model
         }
         // IF there is, set the collection value to 1
         if($exists) {
-            $user->comics()->updateExistingPivot($id, ['collection'=> 1]);
+            $user->comics()->updateExistingPivot($id, ['collection_count'=> 1]);
         }
         // IF there is not, create new row in ComicUser table with collection value as 1
         else {
             $comic = \Project4\Comic::where('id','LIKE',$id)->first();
             # Connect this comic to this user
             # (create a many to many entry)
-            $user->comics()->save($comic, array('collection' => 1, 'wishlist' => 0));
+            $user->comics()->save($comic, array('collection_count' => 1, 'wishlist_count' => 0));
         }
     }
 
@@ -70,7 +70,7 @@ class Comic extends Model
             $comic = \Project4\Comic::where('id','LIKE',$id)->first();
             # Connect this comic to this user
             # (create a many to many entry)
-            $user->comics()->save($comic, array('collection' => 0, 'wishlist' => 1));
+            $user->comics()->save($comic, array('collection_count' => 0, 'wishlist_count' => 1));
         }
     }
 }

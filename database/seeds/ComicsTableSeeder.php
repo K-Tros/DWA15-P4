@@ -37,5 +37,7 @@ class ComicsTableSeeder extends Seeder
         $comic->on_sale_date = date('Y-m-d',strtotime('2016-07-27T00:00:00-0400'));
         $comic->isbn = '';
         $comic->save();
+
+
     }
 }
