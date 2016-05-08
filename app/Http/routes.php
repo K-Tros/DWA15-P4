@@ -114,4 +114,4 @@ Route::group(['middleware' => 'auth'], function() {
         \Session::flash('message','Comic successfully removed from your collection.');
         return redirect('/collection');
     });
-}
+});
