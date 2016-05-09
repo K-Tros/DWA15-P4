@@ -39,12 +39,39 @@ class ComicsTableSeeder extends Seeder
         $comic->save();
 
         $request = new Illuminate\Http\Request();
-        //$request->replace(array('titleStartsWith' => 'young'));
-        $request->replace(array('limit' => 100,
-                                'offset' => 100));
+        $offset = 0;
 
-        $helper = new \Project4\Libraries\MarvelAPIHelper();
+        do {
+            $request->replace(array('limit' => 100,
+                                    'offset' => $offset));
+            $helper = new \Project4\Libraries\MarvelAPIHelper();
+            $apiresult = $helper->getComicsFromAPI($request);
 
-        $comics = $helper->getComicsFromAPI($request);
+            $total = $apiresult['total'];
+            $comics = $apiresult['results'];
+
+            foreach ($comics as $comic) {
+
+                $newcomic = \Project4\Comic::firstOrCreate(['comic_id' => $comic['id']]);
+                $newcomic->title = $comic['title'];
+                $newcomic->thumbnail_url = $comic['thumbnail']['path'] . '.' . $comic['thumbnail']['extension'];
+                foreach ($comic['urls'] as $url) {
+                    if ($url['type'] == 'detail') {
+                        $newcomic->marvel_url = $url['url'];
+                    }
+                }
+                $newcomic->description = $comic['description'];
+                foreach ($comic['dates'] as $date) {
+                    if ($date['type'] = 'onsaleDate') {
+                        $newcomic->on_sale_date = date('Y-m-d',strtotime($date['date']));
+                    }
+                }
+                $newcomic->isbn = $comic['isbn'];
+                $newcomic->save();
+            }
+
+        //} while ($offset <= $total + 100);
+        } while (false);
+
     }
 }

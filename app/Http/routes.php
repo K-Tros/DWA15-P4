@@ -66,7 +66,6 @@ Route::get('/practice', function() {
     $helper = new \Project4\Libraries\MarvelAPIHelper();
 
     $comics = $helper->getComicsFromAPI($request);
-    dd($comics);
 });
 
 Route::group(['middleware' => 'auth'], function() {
