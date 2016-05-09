@@ -12,7 +12,7 @@
         @if(isset($comics))
             <ul>
                 @foreach($comics as $comic)
-                    @if($comic->pivot->wishlist > 0)
+                    @if($comic->pivot->wishlist_count > 0)
                         <li>
                             <div class="comic-title">
                                 {{ $comic->title }}

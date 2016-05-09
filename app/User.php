@@ -27,6 +27,6 @@ class User extends Authenticatable
     public function comics()
     {
         # With timetsamps() will ensure the pivot table has its created_at/updated_at fields automatically maintained
-        return $this->belongsToMany('\Project4\Comic')->withTimestamps()->withPivot('collection','wishlist');
+        return $this->belongsToMany('\Project4\Comic')->withTimestamps()->withPivot('collection_count','wishlist_count');
     }
 }

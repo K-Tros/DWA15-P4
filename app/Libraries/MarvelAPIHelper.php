@@ -16,7 +16,7 @@ class MarvelAPIHelper
             // Base URI is used with relative requests
             'base_uri' => 'https://gateway.marvel.com/',
             // You can set any number of default request options.
-            'timeout'  => 10.0,
+            'timeout'  => 30.0,
         ]);
     }
 

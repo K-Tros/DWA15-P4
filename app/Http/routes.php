@@ -61,7 +61,8 @@ Route::get('/practice', function() {
 
     $request = new Illuminate\Http\Request();
     //$request->replace(array('titleStartsWith' => 'young'));
-    $request->replace(array('limit' => '100'));
+    $request->replace(array('limit' => 100,
+                            'offset' => 100));
 
     $helper = new \Project4\Libraries\MarvelAPIHelper();
 
