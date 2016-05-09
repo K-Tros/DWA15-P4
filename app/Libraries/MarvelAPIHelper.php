@@ -43,10 +43,14 @@ class MarvelAPIHelper
         $body = $res->getBody();
         $obj = json_decode($body, true);
         $data = $obj['data'];
+        $total = $data['total'];
         // $results will be a list of at most 100 comics that fit the search criteria
         $results = $data['results'];
 
-        return $results;
+        $return = [ 'total' => $total,
+                    'results' => $results];
+
+        return $return;
     }
 
 }

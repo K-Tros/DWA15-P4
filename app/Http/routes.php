@@ -60,7 +60,6 @@ Route::post('/register', 'Auth\AuthController@postRegister');
 Route::get('/practice', function() {
 
     $request = new Illuminate\Http\Request();
-    //$request->replace(array('titleStartsWith' => 'young'));
     $request->replace(array('limit' => 100,
                             'offset' => 100));
 

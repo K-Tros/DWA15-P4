@@ -38,6 +38,13 @@ class ComicsTableSeeder extends Seeder
         $comic->isbn = '';
         $comic->save();
 
+        $request = new Illuminate\Http\Request();
+        //$request->replace(array('titleStartsWith' => 'young'));
+        $request->replace(array('limit' => 100,
+                                'offset' => 100));
 
+        $helper = new \Project4\Libraries\MarvelAPIHelper();
+
+        $comics = $helper->getComicsFromAPI($request);
     }
 }
