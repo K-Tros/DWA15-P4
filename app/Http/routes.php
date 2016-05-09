@@ -65,7 +65,12 @@ Route::get('/practice', function() {
 
     $helper = new \Project4\Libraries\MarvelAPIHelper();
 
-    $comics = $helper->getComicsFromAPI($request);
+    //$comics = $helper->getComicsFromAPI($request);
+    $newcomic = \Project4\Comic::firstOrCreate(['comic_id' => 1]);
+    //dd($comics['results'][0]);
+    if ($newcomic->updated_at->lt(\Carbon\Carbon::now())) {
+        dd($newcomic);
+    }
 });
 
 Route::group(['middleware' => 'auth'], function() {

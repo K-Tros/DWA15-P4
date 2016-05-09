@@ -24,7 +24,44 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        $schedule->call(function () {
+            $offset = 0;
+            $now = \Carbon\Carbon::now();
+            $request = new Illuminate\Http\Request();
+            $request->replace(array('limit' => 100,
+                                    'offset' => $offset));
+
+            do {
+                $helper = new \Project4\Libraries\MarvelAPIHelper();
+                $apiresult = $helper->getComicsFromAPI($request);
+
+                $total = $apiresult['total'];
+                $comics = $apiresult['results'];
+
+                foreach ($comics as $comic) {
+
+                    $dbcomic = \Project4\Comic::firstOrCreate(['comic_id' => $comic['id']]);
+                    // only update if the comic has been updated in the API in the last 24 hours
+                    if ($dbcomic->updated_at->lt($now) {
+                        $dbcomic->title = $comic['title'];
+                        $dbcomic->thumbnail_url = $comic['thumbnail']['path'] . '.' . $comic['thumbnail']['extension'];
+                        foreach ($comic['urls'] as $url) {
+                            if ($url['type'] == 'detail') {
+                                $dbcomic->marvel_url = $url['url'];
+                            }
+                        }
+                        $dbcomic->description = $comic['description'];
+                        foreach ($comic['dates'] as $date) {
+                            if ($date['type'] = 'onsaleDate') {
+                                $dbcomic->on_sale_date = date('Y-m-d',strtotime($date['date']));
+                            }
+                        }
+                        $dbcomic->isbn = $comic['isbn'];
+                        $dbcomic->save();
+                    }
+                }
+
+            } while ($offset <= $total + 100);
+        })->daily();
     }
 }
