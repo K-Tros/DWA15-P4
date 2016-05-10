@@ -29,7 +29,7 @@
         </ul>
         <ul class='nav navbar-nav pull-right'>
             @if(Auth::check())
-                <li><a href='/Project4/public/logout'>Sign Out</a></li>
+                <li><a href='/logout'>Sign Out</a></li>
             @else
                 <li class="{{ Request::path() == 'login' ? 'active' : '' }}"><a href='/login'>Log In</a></li>
                 <li class="{{ Request::path() == 'register' ? 'active' : '' }}"><a href='/register'>Register</a></li>

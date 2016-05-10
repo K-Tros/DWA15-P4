@@ -14,7 +14,7 @@
         </ul>
     @endif
 
-    <form method='POST' action='/Project4/public/login'>
+    <form method='POST' action='/login'>
 
         {!! csrf_field() !!}
 
