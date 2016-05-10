@@ -9,7 +9,7 @@
 
     <div class="search center-block">
     @if(Auth::check())
-        <form class="searchform" action="/Project4/public/search" method="POST">
+        <form class="searchform" action="/search" method="POST">
             {{ csrf_field() }}
 
             <label for="title">Comic Title</label>
@@ -20,7 +20,7 @@
         </form>
     @else
         <p>
-            Want to search for comics? <a href='/Project4/public/login'>Log in</a> or <a href='/Project4/public/register'>Register</a> now!
+            Want to search for comics? <a href='/login'>Log in</a> or <a href='/register'>Register</a> now!
         </p>
     @endif
     </div>
@@ -42,8 +42,8 @@
                         <br>
                         <a href="{{ $comic->marvel_url }}">View on Marvel.com</a>
                         <br>
-                        <a href="/Project4/public/collection/add/{{ $comic->id }}">Add to Collection</a>
-                        <br> <a href="/Project4/public/wish-list/add/{{ $comic->id }}">Add to Wish List</a>
+                        <a href="/collection/add/{{ $comic->id }}">Add to Collection</a>
+                        <br> <a href="/wish-list/add/{{ $comic->id }}">Add to Wish List</a>
                     </li>
                     <br>
                 @endforeach

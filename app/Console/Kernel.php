@@ -42,7 +42,7 @@ class Kernel extends ConsoleKernel
 
                     $dbcomic = \Project4\Comic::firstOrCreate(['comic_id' => $comic['id']]);
                     // only update if the comic has been updated in the API in the last 24 hours
-                    if ($dbcomic->updated_at->lt($now) {
+                    if ($dbcomic->updated_at->lt($now)) {
                         $dbcomic->title = $comic['title'];
                         $dbcomic->thumbnail_url = $comic['thumbnail']['path'] . '.' . $comic['thumbnail']['extension'];
                         foreach ($comic['urls'] as $url) {

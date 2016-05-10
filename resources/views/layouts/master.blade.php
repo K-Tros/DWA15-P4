@@ -22,17 +22,17 @@
 <body>
     <nav class='navbar navbar-default'>
         <ul class='nav navbar-nav'>
-            <li class="{{ Request::path() == '/' ? 'active' : '' }}"><a href='/Project4/public/'>Home</a></li>
-            <li class="{{ Request::path() == 'search' ? 'active' : '' }}"><a href='/Project4/public/search'>Search</a></li>
-            <li class="{{ Request::path() == 'collection' ? 'active' : '' }}"><a href='/Project4/public/collection'>Collection</a></li>
-            <li class="{{ Request::path() == 'wish-list' ? 'active' : '' }}"><a href='/Project4/public/wish-list'>Wish List</a></li>
+            <li class="{{ Request::path() == '/' ? 'active' : '' }}"><a href='/'>Home</a></li>
+            <li class="{{ Request::path() == 'search' ? 'active' : '' }}"><a href='/search'>Search</a></li>
+            <li class="{{ Request::path() == 'collection' ? 'active' : '' }}"><a href='/collection'>Collection</a></li>
+            <li class="{{ Request::path() == 'wish-list' ? 'active' : '' }}"><a href='/wish-list'>Wish List</a></li>
         </ul>
         <ul class='nav navbar-nav pull-right'>
             @if(Auth::check())
                 <li><a href='/Project4/public/logout'>Sign Out</a></li>
             @else
-                <li class="{{ Request::path() == 'login' ? 'active' : '' }}"><a href='/Project4/public/login'>Log In</a></li>
-                <li class="{{ Request::path() == 'register' ? 'active' : '' }}"><a href='/Project4/public/register'>Register</a></li>
+                <li class="{{ Request::path() == 'login' ? 'active' : '' }}"><a href='/login'>Log In</a></li>
+                <li class="{{ Request::path() == 'register' ? 'active' : '' }}"><a href='/register'>Register</a></li>
             @endif
         </ul>
     </nav>

@@ -57,6 +57,7 @@ Route::get('/register', 'Auth\AuthController@getRegister');
 # Process registration form
 Route::post('/register', 'Auth\AuthController@postRegister');
 
+/*
 Route::get('/practice', function() {
 
     $request = new Illuminate\Http\Request();
@@ -72,6 +73,7 @@ Route::get('/practice', function() {
         dd($newcomic);
     }
 });
+*/
 
 Route::group(['middleware' => 'auth'], function() {
     Route::post('/search', 'ComicController@postSearch');

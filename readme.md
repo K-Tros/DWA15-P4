@@ -7,8 +7,8 @@
 * Set up screens to display flash message.
 * ~~Add Auth checks to routes.php so that everything important is limited to signed on users.~~
 * Fix css and other styling (kind of ugly right now).
-* Fix all the URLs before deploying to prod (workaround for local dev right now).
-* Remove practice route prior to deploying.
+* ~~Fix all the URLs before deploying to prod (workaround for local dev right now).~~
+* ~~Remove practice route prior to deploying.~~
 
 # Laravel PHP Framework
 

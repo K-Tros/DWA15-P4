@@ -27,7 +27,7 @@
                             <br>
                             <a href="{{ $comic->marvel_url}}">View on Marvel.com</a>
                             <br>
-                            <a href="/Project4/public/wish-list/remove/{{ $comic->id }}">Remove from Wish List</a>
+                            <a href="/wish-list/remove/{{ $comic->id }}">Remove from Wish List</a>
                         </li>
                         <br>
                     @endif
@@ -35,12 +35,12 @@
             </ul>
         @else
             <p>
-                You have not added any comics yet! <a href="/Project4/public/search">Search</a> for comics to add some!
+                You have not added any comics yet! <a href="/search">Search</a> for comics to add some!
             </p>
         @endif
     @else
         <p>
-            Want to manage YOUR wishlist? <a href='/Project4/public/login'>Log in</a> or <a href='/Project4/public/register'>Register</a> now!
+            Want to manage YOUR wishlist? <a href='/login'>Log in</a> or <a href='/register'>Register</a> now!
         </p>
     @endif
     </div>
