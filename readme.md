@@ -3,12 +3,21 @@
 * ~~"Remove" routing and logic needs to be done for Collection and Wishlist.~~
 * ~~Search functionality needs to call Marvel's API.~~ Functional redesign; going to pre-load the comics table from the API, set up a scheduled job to update the table daily, and then just search on the table (rate limited API means that I can't afford to be hitting the API for every search).
 * ~~"Add" functionality in Search results.~~ Maybe in the future I will change it so it doesn't have to refresh the page, but I don't think this is a priority for the due date.
-* Route validation!
-* Set up screens to display flash message.
+* ~~Route validation!~~
+* ~~Set up screens to display flash message.~~
 * ~~Add Auth checks to routes.php so that everything important is limited to signed on users.~~
-* Fix css and other styling (kind of ugly right now).
 * ~~Fix all the URLs before deploying to prod (workaround for local dev right now).~~
 * ~~Remove practice route prior to deploying.~~
+
+# Potential Future Enhancements
+
+* Fix css and other styling (kind of ugly right now, make it prettier).
+* Rearrange things to do a fixed navbar.
+* Cron job to keep DB updated (in progress).
+* Enhance searching to include more search criteria.
+* Paginate collections, wish lists, search results.
+* Search feature in collection/wish list.
+* Add quantity option when viewing collection.
 
 # Laravel PHP Framework
 

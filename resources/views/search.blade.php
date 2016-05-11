@@ -17,6 +17,15 @@
             <br>
 
             <input class='btn btn-primary' type='submit' value='Search:'>
+            @if (count($errors) > 0)
+                <div class="error">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
         </form>
     @else
         <p>

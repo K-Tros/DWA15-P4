@@ -75,8 +75,9 @@ Route::get('/practice', function() {
 });
 */
 
+Route::post('/search', 'ComicController@postSearch');
+
 Route::group(['middleware' => 'auth'], function() {
-    Route::post('/search', 'ComicController@postSearch');
 
     // not really the best to use a get here, but kind of had to so that remove could work in an anchor tag
     // TODO should probably try to find a way to change the add and remove methods to use a post and to stay on the same page
@@ -89,12 +90,12 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/wish-list/remove/{id?}', function($id = null) {
         // comic for user and set wishlist to 0
         $user = \Project4\User::where('id', '=', \Auth::id())->first();
-        $user->comics()->updateExistingPivot($id, ['wishlist'=> 0]);
+        $user->comics()->updateExistingPivot($id, ['wishlist_count'=> 0]);
 
         // check if collection is also zero and detach if it is
         $comics = $user->comics;
         foreach ($comics as $comic) {
-            if ($comic->id == $id && $comic->pivot->collection == 0) {
+            if ($comic->id == $id && $comic->pivot->collection_count == 0) {
                 $user->comics()->detach($id);
             }
         }
@@ -107,12 +108,12 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/collection/remove/{id?}', function($id = null) {
         // comic for user and set collection to 0
         $user = \Project4\User::where('id', '=', \Auth::id())->first();
-        $user->comics()->updateExistingPivot($id, ['collection'=> 0]);
+        $user->comics()->updateExistingPivot($id, ['collection_count'=> 0]);
 
         // check if wishlist is also zero and detach if it is
         $comics = $user->comics;
         foreach ($comics as $comic) {
-            if ($comic->id == $id && $comic->pivot->wishlist == 0) {
+            if ($comic->id == $id && $comic->pivot->wishlist_count == 0) {
                 $user->comics()->detach($id);
             }
         }

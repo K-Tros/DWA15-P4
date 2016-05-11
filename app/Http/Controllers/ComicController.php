@@ -9,6 +9,11 @@ use Project4\Http\Requests;
 class ComicController extends Controller
 {
     public function postSearch(Request $request) {
+
+        $this->validate($request, [
+            'title' => 'required|min:3|alpha_num',
+        ]);
+
         $search_results = \Project4\Comic::comicSearch($request);
         return view('search')->with('search_results', $search_results);
     }

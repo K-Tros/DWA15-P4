@@ -37,6 +37,10 @@
         </ul>
     </nav>
 
+    @if(Session::get('message') != null)
+        <div class='flash_message'>{{ Session::get('message') }}</div>
+    @endif
+
     <section class="container center-block">
         @yield('content')
     </section>

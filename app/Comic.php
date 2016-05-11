@@ -11,7 +11,7 @@ class Comic extends Model
     public function users()
     {
         # With timetsamps() will ensure the pivot table has its created_at/updated_at fields automatically maintained
-        return $this->belongsToMany('\Project4\User')->withTimestamps()->withPivot('collection','wishlist');
+        return $this->belongsToMany('\Project4\User')->withTimestamps()->withPivot('collection_count','wishlist_count');
     }
 
     public static function getComicsForCurrentUser()
@@ -63,7 +63,7 @@ class Comic extends Model
         }
         // IF there is, set the collection value to 1
         if($exists) {
-            $user->comics()->updateExistingPivot($id, ['wishlist'=> 1]);
+            $user->comics()->updateExistingPivot($id, ['wishlist_count'=> 1]);
         }
         // IF there is not, create new row in ComicUser table with collection value as 1
         else {

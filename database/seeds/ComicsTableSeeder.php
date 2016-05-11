@@ -38,7 +38,7 @@ class ComicsTableSeeder extends Seeder
         $comic->isbn = '';
         $comic->save();
 
-        $request = new Illuminate\Http\Request();
+        $request = new \Illuminate\Http\Request();
         $offset = 0;
 
         $request->replace(array('limit' => 100,
