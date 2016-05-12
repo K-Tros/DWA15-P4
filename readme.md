@@ -1,3 +1,42 @@
+# Project 4 - Marvel Comic Collection Manager
+
+## Live URL
+<http://p4.krtsoftwaredev.me>
+
+## Description
+This is a multi-page Marvel Comic Collection Manager. Users can create accounts, and through those accounts they can search for Marvel Comics to add to their Collections or to their Wish Lists. They also have the ability to manage and view their Collections and Wish Lists, including removing comics from either, viewing the comics on Marvel's official page, and viewing a brief description of each comic.
+
+This web application uses tools such as the Laravel framework, Bootstrap, and Guzzle HTTP client in order to provide content directly from Marvel Comics. Back end technologies include PHP, MySQL, and Apache.
+
+All Marvel content is the property of Marvel Comics, and I (the developer) do not claim any ownership of the content. Content has been provided by Marvel Comics via their API (see https://developer.marvel.com for details).
+
+## Demo
+TBD
+
+## Details for teaching team
+I have attempted to set up a scheduled job in order to populate the Comics table with updated data from the Marvel API, but due to some difficulties I encountered during development (accidentally running out several days worth of my rate limit for the Marvel API), this feature is still not functional and in development. The code does exist, but is not running and is of questionable completeness (I intend to only have to check for content updated in the last 24 hours).
+
+To deploy your own version of this project:
+- Create a Marvel developer account at https://developer.marvel.com.
+- Retrieve your public and private keys from your Marvel developer account.
+- Add the IP address/domain that you plan to run this on to the list of authorized referrers. See Marvel's official API documentation for details on how to do this.
+- Create **apis.php** in the **config** directory of your project. Copy and paste the template below, filling in your API keys where appropriate.
+
+```php
+<?php
+return [
+    'marvel_api_public_key' => 'YOUR_PUBLIC_KEY_HERE',
+    'marvel_api_private_key' => 'YOUR_PRIVATE_KEY_HERE'
+];
+```
+
+
+## Outside code
+* Bootstrap: http://getbootstrap.com/
+* Laravel: https://laravel.com/
+* Guzzle: http://docs.guzzlephp.org/
+* Marvel Comic API: https://developer.marvel.com
+
 # Kevin's TODOs
 
 * ~~"Remove" routing and logic needs to be done for Collection and Wishlist.~~
