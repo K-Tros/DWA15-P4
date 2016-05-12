@@ -11,7 +11,7 @@ This web application uses tools such as the Laravel framework, Bootstrap, and Gu
 All Marvel content is the property of Marvel Comics, and I (the developer) do not claim any ownership of the content. Content has been provided by Marvel Comics via their API (see https://developer.marvel.com for details).
 
 ## Demo
-TBD
+<http://screencast.com/t/MKQIArmu>
 
 ## Details for teaching team
 I have attempted to set up a scheduled job in order to populate the Comics table with updated data from the Marvel API, but due to some difficulties I encountered during development (accidentally running out several days worth of my rate limit for the Marvel API), this feature is still not functional and in development. The code does exist, but is not running and is of questionable completeness (I intend to only have to check for content updated in the last 24 hours).
